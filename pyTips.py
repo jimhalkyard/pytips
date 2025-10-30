@@ -599,3 +599,26 @@ print("rest", rest, "# Note the return is a list") # [2, 3, 4]
 rest.append(5)
 print("rest.append(5): ", rest)
 print()
+
+print(colours.colourize("Sets (unique values & mutable)","blue"))
+print()
+
+# Creating Sets
+print("a = {1, 2, 3}")
+a = {1, 2, 3}
+print("a:", a)
+print()
+print("b = set([3, 4, 4, 5])")
+b = set([3, 4, 4, 5])
+print("b:", b)
+print()
+# Set Operations
+print("a | b:" ,a | b) # {1, 2, 3, 4, 5}
+print("a & b:", a & b) # {3}
+print("a - b:", a - b) # {1, 2}
+print("a ^ b:", a ^ b) # {1, 2, 4, 5}
+print()
+b.add(6)
+print("b.add(6):", b)
+a.remove(1)
+print("a.remove(1):", a)
