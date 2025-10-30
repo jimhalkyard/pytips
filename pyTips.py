@@ -521,3 +521,12 @@ else:
     print(f"Result: {result}")
 finally:
     print("Calculation attempted")
+
+print()
+print(colours.colourize("Common Exceptions","blue"))
+
+print("ValueError # Invalid value")
+print("TypeError # Wrong type")
+print("IndexError # List index out of range")
+print("KeyError # Dict key not found")
+print("FileNotFoundError # File doesn't exist")
