@@ -1,0 +1,13 @@
+name: Build
+on:
+  push:
+#    branches:
+#      - main
+  pull_request:
+    types: [opened, synchronize, reopened]
+jobs:
+  dummy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: "Send a message"
+      run: 'echo "Strong message here"'    
