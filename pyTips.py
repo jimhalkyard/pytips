@@ -22,128 +22,6 @@ class Colours:
 # Create an instance of Colours
 colours = Colours()
 
-# Pass-by-object-reference
-#
-# Integers, strings, and tuples () are immutable; lists [], dictionaries {key: value, key: value} or dict(), and sets {item, another, third } or set() are mutable.
-# So, integers, strings, and tuples behave like pass-by-value, while lists, dictionaries, and sets behave like pass-by-reference.
-#
-# Immutable int, float, str, tuple() -> Changes create a new object
-# Mutable list [], dict {k:v}, set {a,b,c} -> Changes modify the original object
-#
-# An integer is immutable so the modification creates a new object 
-print(colours.colourize("Passing variables","red"))
-print(colours.colourize("Modify","blue"))
-
-def modify(num):
-    num += 1
-    print("Inside:", num)
-
-x = 5
-modify(x)
-print("Outside:", x) # x remains 5
-print()
-
-# A list is mutable so the modification affects the original object
-print(colours.colourize("Add item","blue"))
-def add_item(items, value):
-    items.append(value)
-    return items
-
-my_list = [1, 2, 3]
-add_item(my_list, 4)
-print(my_list)  # [1, 2, 3, 4] - modified in place wihtout assignment in the row above that calls add_item()
-print()
-
-# Mutable default arguments are evaluated once at function definition
-print(colours.colourize("Add to list","blue"))
-def add_to_list(value, items=[]):
-    items.append(value)
-    return items
-
-print(add_to_list(1))  # [1]
-print(add_to_list(2))  # [1, 2] - not a fresh list!
-print()
-
-# Argument handling
-# In this example 'a' is the first positional argument
-# *args collects additional positional arguments as a tuple
-# **kwargs collects keyword arguments as a dictionary
-#
-# Must be in this order: positional, *args, **kwargs although you can omit any of them
-#
-print(colours.colourize("Argument handling","red"))
-def demo(a, *args, **kwargs):
-    print("a:", a)
-    print("args:", args)
-    print("kwargs:", kwargs)
-
-demo(1, 2, 3, x=4, y=5)
-print()
-
-# 'is' vs '=='
-print(colours.colourize("Comparison operators 'is' vs '=='","red"))
-a = [1, 2]
-b = [1, 2]
-print(a == b) # True (values are equal)
-print(a is b) # False (different object)
-print()
-
-# Inner functions
-#
-print(colours.colourize("Functions","red"))
-print(colours.colourize("Inner functions","blue"))
-def parent():
-    print("Printing from parent()")
-
-    def first_child():
-        print("Printing from first_child()")
-
-    def second_child():
-        print("Printing from second_child()")
-
-    second_child()
-    first_child()
-
-parent()
-print()
-
-#
-# Returning functions
-print(colours.colourize("Returning functions","blue"))
-def parental(num):
-    def first_child():
-        return "Hi, I'm Elias"
-
-    def second_child():
-        return "Call me Ester"
-
-    if num == 1:
-        return first_child
-    else:
-        return second_child
-
-first = parental(1)
-second = parental(2)
-
-print(first())  # Hi, I'm Elias
-print(second()) # Call me Ester 
-print()
-
-# Decorators
-print(colours.colourize("Decorators","blue"))
-def log(func):
-    def wrapper(*args, **kwargs):
-        print(f"Calling {func.__name__}")
-        return func(*args, **kwargs)
-    return wrapper
-
-@log
-def greet(name):
-    print(f"Hello, {name}")
-
-greet("Python")
-print()
-
 # Types
 print(colours.colourize("Types","red"))
 print(colours.colourize("Type investigation","blue"))
@@ -271,6 +149,7 @@ print(round(3.14159, 2)) # 3.14
 print(min(3, 1, 2)) # 1
 print(max(3, 1, 2)) # 3
 print(sum([1, 2, 3])) # 6
+print()
 
 print(colours.colourize("Conditionals","red"))
 print(colours.colourize("If-Elif-Else","blue"))
@@ -298,6 +177,15 @@ print("x > y", x > y) # Greater than
 print("x >= y", x >= y) # Greater than or equal
 print()
 
+print("a = [1, 2]")
+a = [1, 2]
+print("b = [1, 2]")
+b = [1, 2]
+print(a == b) # True (values are equal)
+print(a is b) # False (different object)
+print()
+
+
 print(colours.colourize("Logical Operators","blue"))
 age, has_car = 19, True
 if age >= 18 and has_car:
@@ -324,8 +212,8 @@ for fruit in fruits:
 # With enumerate for index
 for i, fruit in enumerate(fruits):
     print(f"{i}: {fruit}")
-
 print()
+
 print(colours.colourize("While Loops","blue"))
 
 while True:
@@ -334,8 +222,8 @@ while True:
     if user_input == "quit":
         break
     print(f"You entered: {user_input}")
-
 print()
+
 print(colours.colourize("Loop Control","blue"))
 
 for i in range(10):
@@ -357,6 +245,7 @@ def greet_person(name):
     return f"Hello, {name}!"
 def add(x, y=10): # Default parameter
     return x + y
+print()
 
 print(colours.colourize("Calling Functions","blue"))
 print(greet()) # "Hello!"
@@ -370,6 +259,58 @@ def get_min_max(numbers):
     return min(numbers), max(numbers)
 minimum, maximum = get_min_max([1, 5, 3])
 print("Min:", minimum, "Max:", maximum)
+print()
+
+print(colours.colourize("Inner functions","blue"))
+def parent():
+    print("Printing from parent()")
+
+    def first_child():
+        print("Printing from first_child()")
+
+    def second_child():
+        print("Printing from second_child()")
+
+    second_child()
+    first_child()
+
+parent()
+print()
+
+# Returning functions
+print(colours.colourize("Returning functions","blue"))
+def parental(num):
+    def first_child():
+        return "Hi, I'm Elias"
+
+    def second_child():
+        return "Call me Ester"
+
+    if num == 1:
+        return first_child
+    else:
+        return second_child
+
+first = parental(1)
+second = parental(2)
+
+print(first())  # Hi, I'm Elias
+print(second()) # Call me Ester 
+print()
+
+# Decorators
+print(colours.colourize("Decorators","blue"))
+def log(func):
+    def wrapper(*args, **kwargs):
+        print(f"Calling {func.__name__}")
+        return func(*args, **kwargs)
+    return wrapper
+
+@log
+def greet(name):
+    print(f"Hello, {name}")
+
+greet("Python")
 print()
 
 print(colours.colourize("Useful built-in functions","blue"))
@@ -450,6 +391,61 @@ evens = list(filter(lambda x: x % 2 == 0, numbers))
 print(evens)
 print()
 
+# Pass-by-object-reference
+#
+# Integers, strings, and tuples () are immutable; lists [], dictionaries {key: value, key: value} or dict(), and sets {item, another, third } or set() are mutable.
+# So, integers, strings, and tuples behave like pass-by-value, while lists, dictionaries, and sets behave like pass-by-reference.
+#
+# Immutable int, float, str, tuple() -> Changes create a new object
+# Mutable list [], dict {k:v}, set {a,b,c} -> Changes modify the original object
+#
+# An integer is immutable so the modification creates a new object 
+print(colours.colourize("Pass-by-object-reference","blue"))
+
+def modify(num):
+    num += 1
+    print("Inside:", num)
+
+x = 5
+modify(x)
+print("Outside:", x) # x remains 5
+print()
+
+# A list is mutable so the modification affects the original object
+def add_item(items, value):
+    items.append(value)
+    return items
+
+my_list = [1, 2, 3]
+add_item(my_list, 4)
+print(my_list)  # [1, 2, 3, 4] - modified in place wihtout assignment in the row above that calls add_item()
+print()
+
+# Mutable default arguments are evaluated once at function definition
+def add_to_list(value, items=[]):
+    items.append(value)
+    return items
+
+print(add_to_list(1))  # [1]
+print(add_to_list(2))  # [1, 2] - not a fresh list!
+print()
+
+# Argument handling
+# In this example 'a' is the first positional argument
+# *args collects additional positional arguments as a tuple
+# **kwargs collects keyword arguments as a dictionary
+#
+# Must be in this order: positional, *args, **kwargs although you can omit any of them
+#
+print(colours.colourize("Argument handling","blue"))
+def demo(a, *args, **kwargs):
+    print("a:", a)
+    print("args:", args)
+    print("kwargs:", kwargs)
+
+demo(1, 2, 3, x=4, y=5)
+print()
+
 print(colours.colourize("Classes","red"))
 print(colours.colourize("Defining Classes","blue"))
 
@@ -462,8 +458,8 @@ class Dog:
 # Create instance
 my_dog = Dog("Frieda", 3)
 print(my_dog.bark()) # Frieda says Woof!
-
 print()
+
 print(colours.colourize("Class Attributes & Methods","blue"))
 
 class Cat:
@@ -521,8 +517,8 @@ else:
     print(f"Result: {result}")
 finally:
     print("Calculation attempted")
-
 print()
+
 print(colours.colourize("Common Exceptions","blue"))
 
 print("ValueError # Invalid value")
@@ -534,7 +530,6 @@ print()
 
 print(colours.colourize("Collections","red"))
 print(colours.colourize("Lists (mutable)","blue"))
-print()
 
 # Creating lists
 print("empty = []")
@@ -573,8 +568,6 @@ print("len(fruits):", len(fruits)) # 3
 print()
 
 print(colours.colourize("Tuples (immutable)","blue"))
-print()
-
 # Creating tuples
 print("point = (3, 4)")
 point = (3, 4)
@@ -601,7 +594,6 @@ print("rest.append(5): ", rest)
 print()
 
 print(colours.colourize("Sets (unique values & mutable)","blue"))
-print()
 
 # Creating Sets
 print("a = {1, 2, 3}")
@@ -622,3 +614,43 @@ b.add(6)
 print("b.add(6):", b)
 a.remove(1)
 print("a.remove(1):", a)
+print()
+
+print(colours.colourize("Dictionaries (key:value & mutable)","blue"))
+# Creating Dictionaries
+print("empty = {}")
+empty = {}
+
+print("pet = {\"name\": \"Leo\", \"age\": 42}")
+pet = {"name": "Leo", "age": 42}
+print()
+
+# Dictionary Operations
+print("pet[\"sound\"] = \"Purr!\" # Add key and value")
+pet["sound"] = "Purr!" # Add key and value
+
+print("pet[\"age\"] = 7 # Update value")
+pet["age"] = 7 # Update value
+
+print("age = pet.get(\"age\", 0) # Get with default")
+age = pet.get("age", 0) # Get with default
+
+print("del pet[\"sound\"] # Delete key")
+del pet["sound"] # Delete key
+
+print("pet.pop(\"age\") # Remove and return")
+pet.pop("age") # Remove and return
+print()
+
+# Dictionary Methods
+print("pet = {\"name\": \"Frieda\", \"sound\": \"Bark!\"}")
+pet = {"name": "Frieda", "sound": "Bark!"}
+
+print("pet.keys()", pet.keys()) # dict_keys(['name', 'sound'])
+print("pet.values()", pet.values()) # dict_values(['Frieda', 'Bark!'])
+print("pet.items()", pet.items()) # dict_items([('name', 'Frieda'), ('sound', 'Bark!')])
+print()
+
+for x in pet.keys():
+    print("Value of", x, "is", pet[x])
+print()
