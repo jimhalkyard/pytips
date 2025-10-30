@@ -530,3 +530,72 @@ print("TypeError # Wrong type")
 print("IndexError # List index out of range")
 print("KeyError # Dict key not found")
 print("FileNotFoundError # File doesn't exist")
+print()
+
+print(colours.colourize("Collections","red"))
+print(colours.colourize("Lists (mutable)","blue"))
+print()
+
+# Creating lists
+print("empty = []")
+empty = []
+print("nums = [5]")
+nums = [5]
+print("mixed = [1, \"two\", 3.0, True]")
+mixed = [1, "two", 3.0, True]
+print()
+
+# List methods
+print("nums.append(\"x\") # Add to end")
+nums.append("x") # Add to end
+print("nums.insert(0, \"y\") # Insert at index 0")
+nums.insert(0, "y") # Insert at index 0
+print("nums.extend([\"z\", 5]) # Extend with iterable")
+nums.extend(["z", 5]) # Extend with iterable
+print("nums.remove(\"x\") # Remove first \"x\"")
+nums.remove("x") # Remove first "x"
+print("last = nums.pop() # Pop returns last element")
+last = nums.pop() # Pop returns last element
+print()
+
+# List indexing and checks
+print("fruits = [\"banana\", \"apple\", \"orange\"]")
+fruits = ["banana", "apple", "orange"]
+
+print("fruits[0]:", fruits[0]) # banana
+print("fruits[-1]:", fruits[-1]) # orange
+
+is_it_there = lambda x: x in fruits # True
+print("Is apple in fruits?", is_it_there("apple"))
+print("Is cherry in fruits?", is_it_there("cherry"))
+
+print("len(fruits):", len(fruits)) # 3
+print()
+
+print(colours.colourize("Tuples (immutable)","blue"))
+print()
+
+# Creating tuples
+print("point = (3, 4)")
+point = (3, 4)
+
+print("single = (1,) # Note the comma!")
+single = (1,) # Note the comma!
+
+print("empty = ()")
+empty = ()
+
+# Basic tuple unpacking
+print("x, y = point")
+x, y = point
+print("x:", x)  # 3
+print("y:", y) # 4
+
+# Extended unpacking
+print("first, *rest = (1, 2, 3, 4)")
+first, *rest = (1, 2, 3, 4)
+print("first:", first) # 1
+print("rest", rest, "# Note the return is a list") # [2, 3, 4]
+rest.append(5)
+print("rest.append(5): ", rest)
+print()
