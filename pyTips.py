@@ -727,3 +727,29 @@ print("Looping with items()")
 for key, value in my_dict.items():
     print(f"Key: {key}, Value: {value}")
 print()
+
+print(colours.colourize("Comprehensions", "red"))
+print(colours.colourize("Lists comprehensions", "blue"))
+
+# Comprehensions can be considered to be faster for-loops
+
+# Basic
+print("Basic")
+print("squares = [x**2 for x in range(10)]")
+squares = [x**2 for x in range(10)]
+print(squares)
+print()
+
+# With condition
+print("With a condition")
+print("evens = [x for x in range(20) if x % 2 == 0]")
+evens = [x for x in range(20) if x % 2 == 0]
+print(evens)
+print()
+
+# Nested
+print("Nested")
+print("matrix = [[i*j for j in range(3)] for i in range(3)]")
+matrix = [[i*j for j in range(3)] for i in range(3)]
+print(matrix)
+print()
