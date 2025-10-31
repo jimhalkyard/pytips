@@ -600,18 +600,20 @@ print("a = {1, 2, 3}")
 a = {1, 2, 3}
 print("a:", a)
 print()
-print("b = set([3, 4, 4, 5])")
-b = set([3, 4, 4, 5])
-print("b:", b)
+print("b = [3, 4, 4, 5]")
+b = [3, 4, 4, 5] # List with non-unique values
+print("c = set(b)")
+c = set(b) # Turn the list into a set (removes one of the 4s)
+print("c:", c)
 print()
 # Set Operations
-print("a | b:" ,a | b) # {1, 2, 3, 4, 5}
-print("a & b:", a & b) # {3}
-print("a - b:", a - b) # {1, 2}
-print("a ^ b:", a ^ b) # {1, 2, 4, 5}
+print("a | c:" ,a | c) # {1, 2, 3, 4, 5}
+print("a & c:", a & c) # {3}
+print("a - c:", a - c) # {1, 2}
+print("a ^ c:", a ^ c) # {1, 2, 4, 5}
 print()
-b.add(6)
-print("b.add(6):", b)
+c.add(6)
+print("c.add(6):", c)
 a.remove(1)
 print("a.remove(1):", a)
 print()
