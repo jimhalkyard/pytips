@@ -707,6 +707,23 @@ print(
 )  # dict_items([('name', 'Frieda'), ('sound', 'Bark!')])
 print()
 
-for x in pet.keys():
-    print("Value of", x, "is", pet[x])
+my_dict = {"name": "Alice", "age": 30, "city": "New York"}
+print("Looping with key")
+for key in my_dict:
+    print(key)
+print()
+
+print("Looping with keys()")
+for key in my_dict.keys():
+    print(key)
+print()
+
+print("Looping with value")
+for value in my_dict.values():
+    print(value)
+print()
+
+print("Looping with items()")
+for key, value in my_dict.items():
+    print(f"Key: {key}, Value: {value}")
 print()
