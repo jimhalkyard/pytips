@@ -1,6 +1,12 @@
-# Showing python tips
+#!/usr/bin/env python3
+"""
+This script demonstrates the use of various Python concepts
 
+Author: Jim Halkyard
+Copyright (c) 2025 Your Name. All rights reserved.
+Licensed under the MIT License.
 
+"""
 # Create a class to handle colours in terminal output
 # This simply creates a new object that contains colour codes as attributes and a fubction to apply them to text
 class Colours:
